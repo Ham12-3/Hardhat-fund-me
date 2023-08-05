@@ -71,7 +71,7 @@ contract FundMe {
         s_funders = new address[](0);
         // Transfer vs call vs Send
         // payable(msg.sender).transfer(address(this).balance);
-        (bool success, ) = i_owner.call{value: address(this).balance}("");
+        (bool success, ) = address(this).call{value: i_owner.balance}("");
         require(success);
     }
 
